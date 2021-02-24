@@ -24,13 +24,16 @@ a{
 	color: #000;
 }
 
-.basket{
+.basket,
+.menu-socials>li>a,
+.submit__btn:before,
+.menu__list-2nd>li:before{
 	background: url(../images/icons/css_sprites.png);
 }
 
 /*------------header-----------*/
 
-.menu{
+/*.menu{
 	background: #000;
 	padding: 15px 0;
 	position: relative;
@@ -104,7 +107,7 @@ a{
 .menu>.container{
 	display: flex;
 	justify-content: space-between;
-}
+}*/
 
 .basket{
 	width: 30px; height: 25px;
@@ -232,6 +235,176 @@ button.owl-dot.active:focus{
 
 
 
+.header__body{
+	background: #000;
+}
+.header__body>.container{
+	display: flex;
+	justify-content: space-between;
+}
+
+
+
+
+
+
+.menu{
+	width: 415px;
+	border: 2px solid #000;
+	border-left: none;
+}
+
+
+.menu__header{
+	display: flex;
+	justify-content: space-between;
+	background: #000;
+	color: #fff;
+	font-size: 20px;
+	line-height: 38.4px;
+	text-transform: uppercase;
+}
+
+.menu__form{
+	display: flex;
+	justify-content: space-between;
+	background-color: #b1b1b1;
+	padding: 9px 11px 11px 0;
+}
+
+.menu__form>input[type="search"]{
+	height: 42px;
+	background: #fff;
+	width: 100%;
+	border: none;
+	padding-left: 15px;
+}
+
+.submit__btn{
+	display: block;
+	width: 46px;
+	height: 42px;
+	margin-left: 11px;
+	border: none;
+	background-color: #000;
+	position: relative;
+}
+.submit__btn:before{
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 19px; height: 18px;
+	background-position: -165px -29px;
+}
+
+::-webkit-input-placeholder {color: #585858; font-family: 'Rajdhani', sans-serif;}
+::-moz-placeholder          {color: #585858; font-family: 'Rajdhani', sans-serif;}/* Firefox 19+ */
+:-moz-placeholder           {color: #585858; font-family: 'Rajdhani', sans-serif;}/* Firefox 18- */
+:-ms-input-placeholder      {color: #585858; font-family: 'Rajdhani', sans-serif;}
+
+.menu__list{
+	height: 612px;
+	overflow-y: auto;	
+}
+
+
+.menu__item>a{
+	display: block;
+	color: #292929;
+	padding: 29px 0 25px;
+	border-bottom: 2px solid #b1b1b1;
+}
+
+.menu__list-2nd>li>a{
+	display: block;
+	background: #000;
+	padding: 17px 0;
+	color: #fff;
+	border-bottom: 2px solid #fff;
+}
+.menu__list-2nd>li{
+	position: relative;
+}
+.menu__list-2nd>li:before{
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 27px;
+	transform: translateY(-50%);
+	width: 10px; height: 16px;
+	background-position: -66px -139px;
+}
+
+.menu-socials{
+	font-size: 0;
+	padding: 162px 20px 15px 0;
+	text-align: right;
+}
+.menu-socials>li{
+	display: inline-block;
+}
+
+.menu-socials>li>a{
+	display: block;
+	width: 13px; height: 23px;
+   background-position: -165px -79px;
+   margin-left: 11px;
+}
+.menu-socials>li+li>a{
+	width: 31px; height: 21px;
+   background-position: -36px -110px;
+}
+.menu-socials>li+li+li>a{
+	width: 23px; height: 23px;
+   background-position: -165px -2px;
+}
+
+
+.menu__btn span, .menu__btn:after, .menu__btn:before{
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    background: #fff;
+    margin: 0 auto;
+}
+.menu__btn span{
+    top: 8px;
+}
+.menu__btn:after, .menu__btn:before{
+    content: '';
+}
+.menu__btn:after{
+    bottom: 0;
+}
+.menu__btn:before{
+    top: 0;
+}
+
+.menu__btn.open-menu span {
+    opacity:0; 
+    transition: 0.5s; 
+}
+.menu__btn.open-menu:before {
+    transform: rotate(42deg);
+    top: 16px;
+    transition: 0.4s;
+}
+.menu__btn.open-menu:after {
+    transform: rotate(-42deg);
+    bottom: 0px;
+    transition: 0.4s;
+}
+.menu__btn{
+	position: relative;
+   width: 28px;
+   height: 19px;
+   display: block;
+   margin-right: 10px;
+}
+
+
 
 
 
@@ -263,14 +436,14 @@ button.owl-dot.active:focus{
 
 @media (min-width: 750px){
 
-.menu__list{
+/*.menu__list{
 	display: flex;
 	justify-content: space-between;
 }
 
 .menu__list li {
     margin: 40px 15px;
-}
+}*/
 .slider{
 	height: 460px;
 }
@@ -313,10 +486,6 @@ button.owl-dot.active:focus{
 	margin: 0 auto;
 }
 
-.header__body{
-	display: flex;
-	flex-direction: column;
-}
 .header-benefits{
 	order: 1;
 	font-size: 12px;
@@ -359,7 +528,7 @@ button.owl-dot.active:focus{
 	bottom: 45px;
 	margin-right: 6px;
 }
-.menu{
+/*.menu{
 	order: 10;
 }
 
@@ -368,7 +537,7 @@ button.owl-dot.active:focus{
 }
 .menu__list li {
     margin: 40px 0;
-}
+}*/
 
 .basket{
 	width: 35px; height: 29px;
