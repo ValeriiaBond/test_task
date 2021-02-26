@@ -19,6 +19,16 @@ h1{
 	letter-spacing: -1.5px;
 }
 
+h2{
+	color: #393939;
+	font-size: 18px;
+	line-height: 19.4px;
+	text-transform: uppercase;
+	position: relative;
+	width: fit-content;
+	margin: 0 auto 30px;
+}
+
 a{
 	text-decoration: none;
 	color: #000;
@@ -27,87 +37,30 @@ a{
 .basket,
 .menu-socials>li>a,
 .submit__btn:before,
-.menu__list-2nd>li:before{
+.menu__list-2nd>li:before,
+h2:after, 
+h2:before{
 	background: url(../images/icons/css_sprites.png);
 }
 
-/*------------header-----------*/
-
-/*.menu{
-	background: #000;
-	padding: 15px 0;
-	position: relative;
-}
-
-.menu-burger__header{
-	position: relative;
-   width: 28px;
-   height: 19px;
-   display: block;
-   margin-left: 10px;
-}
-
-.menu-burger__header span, .menu-burger__header:after, .menu-burger__header:before{
-    height: 3px;
-    width: 100%;
-    position: absolute;
-    background: #fff;
-    margin: 0 auto;
-}
-.menu-burger__header span{
-    top: 8px;
-}
-.menu-burger__header:after, .menu-burger__header:before{
-    content: '';
-}
-.menu-burger__header:after{
-    bottom: 0;
-}
-.menu-burger__header:before{
-    top: 0;
-}
-
-.menu-burger__header.open-menu span {
-    opacity:0; 
-    transition: 0.5s; 
-}
-.menu-burger__header.open-menu:before {
-    transform: rotate(38deg);
-    top: 10px;
-    transition: 0.4s;
-}
-.menu-burger__header.open-menu:after {
-    transform: rotate(-38deg);
-    bottom: 7px;
-    transition: 0.4s;
-}
-
-.menu__list a{
-	color: #fff;
-}
-.menu__body{
-	display: block;
+h2:after, h2:before{
+	content: '';
 	position: absolute;
-	top: 48px;
-	width: 100%;
-	background: rgba(0,0,0,.93);
-	z-index: 5;
-	left: -100%;
-   transition: all 0.4s ease;
+	width: 41px; height: 7px;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
-.menu__body.open-menu {
-    left: 0;
-}
-.menu__list li{
-	margin: 40px 0px 40px 33px;
-	font-size: 14px;
+h2:before{
+	right: calc(100% + 10px);
+	background-position: -105px -110px;
+
 }
 
-.menu>.container{
-	display: flex;
-	justify-content: space-between;
-}*/
+h2:after{
+	left: calc(100% + 10px);
+	background-position: -105px -122px;
+}
 
 .basket{
 	width: 30px; height: 25px;
@@ -307,6 +260,7 @@ button.owl-dot.active:focus{
 .menu__list{
 	height: 612px;
 	overflow-y: auto;	
+	display: none;
 }
 
 
@@ -315,6 +269,7 @@ button.owl-dot.active:focus{
 	color: #292929;
 	padding: 29px 0 25px;
 	border-bottom: 2px solid #b1b1b1;
+	background-color: #fff;
 }
 
 .menu__list-2nd>li>a{
@@ -405,6 +360,47 @@ button.owl-dot.active:focus{
 }
 
 
+/* ------------раздел suggestions------------ */
+
+.suggestions{
+	padding-top: 26px;
+}
+.suggestion__img{
+	width: 155px;
+	height: 277px;
+}
+
+.suggestion__item>p{
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -436,16 +432,17 @@ button.owl-dot.active:focus{
 
 @media (min-width: 750px){
 
-/*.menu__list{
+.header{
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
 }
 
-.menu__list li {
-    margin: 40px 15px;
-}*/
+.header__body{
+	order: 10;
+}
 .slider{
 	height: 460px;
+	order: 5;
 }
 .slider__item{
 	height: 460px;
@@ -468,7 +465,43 @@ button.owl-dot.active:focus{
     border: none;
 }
 
+.suggestions{
+	padding-top: 29px;
 }
+
+h2{
+	font-size: 20px;
+	line-height: 23.9px;
+	margin-bottom: 22px;
+}
+
+h2:after, h2:before{
+	width: 68px; height: 12px;
+}
+
+h2:before{
+	right: calc(100% + 20px);
+	background-position: -79px -93px;
+
+}
+
+h2:after{
+	left: calc(100% + 20px);
+	background-position: -79px -77px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -520,24 +553,10 @@ button.owl-dot.active:focus{
     border: 1px solid #000
 }
 
-.slider{
-	order: 5;
-}
-
 .slider__body.owl-carousel .owl-dots{
 	bottom: 45px;
 	margin-right: 6px;
 }
-/*.menu{
-	order: 10;
-}
-
-.menu-burger__header {
-	margin-left: 0;
-}
-.menu__list li {
-    margin: 40px 0;
-}*/
 
 .basket{
 	width: 35px; height: 29px;
@@ -552,6 +571,16 @@ button.owl-dot.active:focus{
 	border: 2px solid #000;
 	padding-top: 5px;
 	font-size: 16px;
+}
+
+.suggestions{
+	padding-top: 41px;
+}
+
+h2{
+	font-size: 24px;
+	line-height: 28.68px;
+	margin-bottom: 28px;
 }
 
 
