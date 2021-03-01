@@ -38,7 +38,8 @@ a {
 .submit__btn:before,
 .menu__list-2nd > li:before,
 h2:after,
-h2:before {
+h2:before,
+.categories::before {
 	background: url(../images/icons/css_sprites.png);
 }
 
@@ -61,7 +62,9 @@ h2:after {
 	left: calc(100% + 10px);
 	background-position: -105px -122px;
 }
-
+.header__body {
+	padding: 16px 0;
+}
 .basket {
 	width: 30px;
 	height: 25px;
@@ -190,12 +193,6 @@ button.owl-dot.active:focus {
 	justify-content: space-between;
 }
 
-.menu {
-	width: 415px;
-	border: 2px solid #000;
-	border-left: none;
-}
-
 .menu__header {
 	display: flex;
 	justify-content: space-between;
@@ -263,6 +260,9 @@ button.owl-dot.active:focus {
 	overflow-y: auto;
 	display: none;
 }
+.menu__list.open {
+	display: block;
+}
 
 .menu__item > a {
 	display: block;
@@ -320,6 +320,10 @@ button.owl-dot.active:focus {
 	background-position: -165px -2px;
 }
 
+.menu__title {
+	display: none;
+}
+
 .menu__btn span,
 .menu__btn:after,
 .menu__btn:before {
@@ -363,13 +367,16 @@ button.owl-dot.active:focus {
 	height: 19px;
 	display: block;
 	margin-right: 10px;
+	margin-left: 13px;
 }
 
 /* ------------раздел suggestions------------ */
 
 .suggestions {
 	padding-top: 26px;
+	padding-bottom: 45px;
 }
+
 .suggestion__item {
 	position: relative;
 	z-index: 1;
@@ -380,13 +387,13 @@ button.owl-dot.active:focus {
 	margin-bottom: 4px;
 }
 
-.crossed-out{
+.crossed-out {
 	text-align: center;
 	text-decoration: line-through;
 	color: #888888;
 	font-size: 15px;
 }
-.suggestion__item > p{
+.suggestion__item > p {
 	text-align: center;
 	font-size: 15px;
 	font-weight: 400;
@@ -428,7 +435,7 @@ h5 {
 	line-height: 13.59px;
 	width: 45px;
 	height: 15px;
-	box-shadow: box-shadow: 0px 4px 14px -3px rgba(34, 60, 80, 0.07);;
+	box-shadow: 0px 4px 14px -3px rgba(34, 60, 80, 0.07);
 }
 
 h5::before {
@@ -465,12 +472,81 @@ h5 > span {
 .suggestion__carousel.owl-carousel .owl-stage-outer {
 	padding-top: 13px;
 }
+/* ---------- раздел categories------------- */
+
+.categories {
+	padding-top: 60px;
+	position: relative;
+}
+.categories::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 159px;
+	height: 37px;
+	background-position: -2px -2px;
+}
+
+.category__list {
+	margin: 0 15px;
+}
+
+.category__item {
+	margin-bottom: 12px;
+}
+
+.category__item > a {
+	display: block;
+}
+
+.jacket {
+	background: url(../images/categories/jackets.jpg);
+	background-size: cover;
+	height: 216px;
+}
+.shorts {
+	background: url(../images/categories/shorts.jpg);
+	background-size: cover;
+	height: 216px;
+}
+.vest {
+	background: url(../images/categories/vest.jpg);
+	background-size: cover;
+	height: 166px;
+}
+.shirts {
+	background: url(../images/categories/shirt.jpg);
+	background-size: cover;
+	height: 313px;
+}
+.pants {
+	background: url(../images/categories/pants.jpg);
+	background-size: cover;
+	height: 293px;
+}
+.t-shirts {
+	background: url(../images/categories/t-shirt.jpg);
+	background-size: cover;
+	height: 176px;
+}
+
 /* -------------Более 750px---------------- */
 @media (min-width: 750px) {
 	.header {
 		display: flex;
 		flex-direction: column;
 	}
+	.header__body {
+		padding: 10px 0;
+	}
+
+	/* .menu {
+	width: 415px;
+	border: 2px solid #000;
+	border-left: none;
+} */
 
 	.header__body {
 		order: 10;
@@ -502,6 +578,7 @@ h5 > span {
 
 	.suggestions {
 		padding-top: 29px;
+		padding-bottom: 15px;
 	}
 
 	h2 {
@@ -525,12 +602,45 @@ h5 > span {
 		left: calc(100% + 20px);
 		background-position: -79px -77px;
 	}
+	.category__list {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.category__item {
+		height: 265px;
+	}
+	.category__item:nth-child(odd) {
+		margin-right: 15px;
+	}
+
+	.jacket {
+		flex: 1 1 357px;
+	}
+	.shorts {
+		flex: 1 1 357px;
+	}
+	.vest {
+		flex: 1 1 465px;
+	}
+	.shirts {
+		flex: 1 1 249px;
+	}
+	.pants {
+		flex: 1 1 266px;
+	}
+	.t-shirts {
+		flex: 1 1 448px;
+	}
 }
 
+/* ----------------Более 1250-----------------*/
 @media (min-width: 1250px) {
 	.container {
 		width: 1240px;
 		margin: 0 auto;
+	}
+	.header__body {
+		padding: 14px 0;
 	}
 
 	.header-benefits {
@@ -572,6 +682,10 @@ h5 > span {
 		margin-right: 6px;
 	}
 
+	.menu__btn {
+		margin-left: 0;
+	}
+
 	.basket {
 		width: 35px;
 		height: 29px;
@@ -590,11 +704,49 @@ h5 > span {
 
 	.suggestions {
 		padding-top: 41px;
+		padding-bottom: 62px;
 	}
 
 	h2 {
 		font-size: 24px;
 		line-height: 28.68px;
 		margin-bottom: 28px;
+	}
+	.categories {
+		padding-top: 77px;
+	}
+	.categories::before {
+		width: 129px;
+		height: 30px;
+		background-position: -2px -43px;
+	}
+	.category__list {
+		margin: 0;
+	}
+	.category__item {
+		height: 446px;
+		margin-bottom: 26px;
+	}
+	.category__item:nth-child(odd) {
+		margin-right: 28px;
+	}
+
+	.jacket {
+		flex: 1 1 604px;
+	}
+	.shorts {
+		flex: 1 1 602px;
+	}
+	.vest {
+		flex: 1 1 784px;
+	}
+	.shirts {
+		flex: 1 1 419px;
+	}
+	.pants {
+		flex: 1 1 449px;
+	}
+	.t-shirts {
+		flex: 1 1 756px;
 	}
 }
