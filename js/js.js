@@ -47,5 +47,58 @@ $(document).ready(function () {
             }
         }
     });
+    if ($(window).width() < 750) {
+        $('.gallery__carousel').owlCarousel({
+            center: true,
+            items: 2,
+            loop: true,
+            margin: 15,
+            autoWidth: true,
+            startPosition: 2,
+        });
+    } else {
+        $('.gallery__carousel').owlCarousel({
+            center: false,
+            startPosition: 0,
+            items: 5
+        });
+    }
 
+    if ($(window).width() < 750) {
+        $('.who-use__carousel').owlCarousel({
+            center: true,
+            items: 2,
+            loop: true,
+            margin: 20,
+            autoWidth: true,
+            startPosition: 1,
+        });
+    } else {
+        $('.who-use__carousel').owlCarousel({
+            center: false,
+            startPosition: 0,
+            items: 4,
+            margin: 20,
+        });
+    }
 });
+
+
+// $(window).resize(function () {
+//     if ($(window).width() < 750) {
+//         $('.gallery__carousel').owlCarousel({
+//             center: true,
+//             items: 2,
+//             loop: true,
+//             margin: 15,
+//             autoWidth: true,
+//             startPosition: 2,
+//         });
+//     } else {
+//         $('.gallery__carousel').owlCarousel({
+//             center: false,
+//             startPosition: 0,
+//             items: 5
+//         });
+//     }
+// })
