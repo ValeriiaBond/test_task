@@ -2,10 +2,26 @@
 
 
 $(document).ready(function () {
-    $('.menu-burger__header').click(function () {
-        $('.menu-burger__header').toggleClass('open-menu');
-        $('.menu__body').toggleClass('open-menu');
+    $('.menu__header').click(function () {
+        $('.menu__list').toggleClass('open-menu');
+        $('.menu__title').toggleClass('open-menu');
+        $('.menu__btn').toggleClass('open-menu');
+        //$('body').toggleClass('fixed-page');
     });
+    // var top = $('.menu').offset().top;
+    // var menuHeight = $('.header__body').innerHeight()
+    // console.log(top);
+    // console.log(menuHeight);
+    // $('.menu__list').offset({ top: top + menuHeight });
+
+
+    var left = $('.container').offset().left;
+    console.log(left);
+
+    $('.basket').click(function () {
+        $('.basket__body').toggleClass('open-basket');
+    });
+
 
     $('.benefits__carousel').owlCarousel({
         loop: true,

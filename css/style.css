@@ -41,7 +41,8 @@ h2:after,
 h2:before,
 .categories::before,
 .gallery__item > p::before,
-.footer-social__item > a {
+.footer-social__item > a,
+.btn-checkout::after {
 	background: url(../images/icons/css_sprites.png);
 }
 
@@ -90,6 +91,166 @@ h2:after {
 	padding-top: 3px;
 	text-align: center;
 	font-size: 13px;
+}
+.basket__body {
+	display: none;
+	width: 425px;
+	position: absolute;
+	right: 100%;
+	top: -14px;
+	z-index: 5;
+	border-left: 2px solid #000;
+	border-bottom: 2px solid #000;
+}
+.basket__body.open-basket {
+	display: block;
+}
+.basket__list {
+	height: 476px;
+	background-color: #fff;
+	overflow-y: auto;
+	border-bottom: 2px solid #b1b1b1;
+}
+.basket__header {
+	color: #ffffff;
+	background-color: #000;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 38.4px;
+	text-transform: uppercase;
+	letter-spacing: 0.53px;
+	padding: 10px 0 9px 22px;
+}
+.basket__item {
+	display: flex;
+	background-color: #fff;
+	position: relative;
+	border-bottom: 2px solid #b1b1b1;
+}
+.product__image {
+	width: 65px;
+	height: 120px;
+}
+.product__image img {
+	width: inherit;
+	height: inherit;
+}
+.product-details {
+	margin: 0 103px 0 14px;
+}
+.product__name {
+	color: #292929;
+	font-size: 22px;
+	font-weight: 500;
+	letter-spacing: 0.39px;
+	padding-top: 12px;
+	padding-bottom: 8px;
+}
+.product__color {
+	width: 23px;
+	height: 23px;
+	background-color: #000;
+	margin-bottom: 21px;
+}
+.product__amount {
+	font-size: 0;
+	margin-bottom: 8px;
+}
+.btn-less,
+.btn-more {
+	display: inline-block;
+	width: 28px;
+	height: 26px;
+	border: 2px solid #010202;
+	background: transparent;
+	font-weight: 500;
+	font-size: 14px;
+}
+.amount-display {
+	display: inline-block;
+	width: 44px;
+	height: 26px;
+	box-sizing: border-box;
+	background-color: #d1d1d1;
+	color: #292929;
+	font-size: 22px;
+	text-align: center;
+	margin: 0 4px;
+	vertical-align: bottom;
+	padding-top: 3px;
+}
+.product__price {
+	color: #292929;
+	font-size: 22px;
+	text-transform: uppercase;
+	letter-spacing: 0.39px;
+	padding-top: 90px;
+}
+.product__btn-delete {
+	width: 28px;
+	height: 26px;
+	border: 2px solid #010202;
+	background-color: #b1b1b1;
+	position: absolute;
+	top: 9px;
+	right: 8px;
+	background: transparent;
+}
+.basket__total {
+	height: 50px;
+	box-sizing: border-box;
+	padding: 15px 12px 16px 14px;
+	background-color: #dcdcdc;
+	display: flex;
+	justify-content: space-between;
+}
+.basket__total > span {
+	color: #292929;
+	font-size: 22px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.39px;
+}
+.basket__total > span + span {
+	font-weight: 400;
+	line-height: normal;
+}
+.basket__btn-group {
+	font-size: 0;
+}
+.btn-continue,
+.btn-checkout {
+	display: inline-block;
+	width: 50%;
+	height: 86px;
+	box-sizing: border-box;
+	font-family: Rajdhani;
+	font-size: 26px;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.46px;
+	vertical-align: top;
+	border: none;
+	background: #fff;
+	color: #b3b3b3;
+}
+.btn-checkout {
+	background-color: #000;
+	color: #fff;
+	text-align: left;
+	padding-left: 22px;
+	position: relative;
+}
+.btn-checkout::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 8px;
+	transform: translateY(-50%);
+	width: 14px;
+	height: 24px;
+	background-position: -165px -51px;
 }
 
 .header-benefits {
@@ -194,15 +355,17 @@ button.owl-dot.active:focus {
 	display: flex;
 	justify-content: space-between;
 }
-
+.menu {
+	position: relative;
+}
 .menu__header {
 	display: flex;
 	justify-content: space-between;
 	background: #000;
 	color: #fff;
 	font-size: 20px;
-	line-height: 38.4px;
 	text-transform: uppercase;
+	width: 415px;
 }
 
 .menu__form {
@@ -259,11 +422,19 @@ button.owl-dot.active:focus {
 
 .menu__list {
 	height: 612px;
+	width: 415px;
 	overflow-y: auto;
 	display: none;
+	position: absolute;
+	//top: 43px;
+	z-index: 10;
+	background-color: #fff;
 }
-.menu__list.open {
+.menu__list.open-menu {
 	display: block;
+}
+.fixed-page {
+	overflow: hidden; /*запрещаем прокручивание страницы при открытом меню*/
 }
 
 .menu__item > a {
@@ -324,6 +495,9 @@ button.owl-dot.active:focus {
 
 .menu__title {
 	display: none;
+}
+.menu__title.open-menu {
+	display: block;
 }
 
 .menu__btn span,
