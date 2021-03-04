@@ -13,9 +13,12 @@ h1 {
 	font-size: 30px;
 	font-weight: 700;
 	line-height: 22px;
-	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: -1.5px;
+	float: left;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 h2 {
@@ -42,7 +45,9 @@ h2:before,
 .categories::before,
 .gallery__item > p::before,
 .footer-social__item > a,
-.btn-checkout::after {
+.btn-checkout::after,
+.arrow-left,
+.arrow-right {
 	background: url(../images/icons/css_sprites.png);
 }
 
@@ -74,6 +79,7 @@ h2:after {
 	margin-right: 10px;
 	background-position: -2px -110px;
 	position: relative;
+	float: right;
 }
 
 .basket-amount {
@@ -351,9 +357,10 @@ button.owl-dot.active:focus {
 .header__body {
 	background: #000;
 }
-.header__body > .container {
-	display: flex;
-	justify-content: space-between;
+.header__body > .container::after {
+	content: "";
+	width: 100%;
+	display: block;
 }
 .menu {
 	position: relative;
@@ -365,7 +372,8 @@ button.owl-dot.active:focus {
 	color: #fff;
 	font-size: 20px;
 	text-transform: uppercase;
-	width: 415px;
+	//width: 415px;
+	float: left;
 }
 
 .menu__form {
@@ -434,7 +442,7 @@ button.owl-dot.active:focus {
 	display: block;
 }
 .fixed-page {
-	overflow: hidden; /*запрещаем прокручивание страницы при открытом меню*/
+	overflow: hidden;
 }
 
 .menu__item > a {
@@ -585,12 +593,12 @@ button.owl-dot.active:focus {
 .suggestion__img:before {
 	content: "";
 	position: absolute;
-	top: 0;
+	top: -14px;
 	bottom: 0;
-	left: 0;
+	left: -6px;
 	right: 0;
-	z-index: 5;
-	background-color: rgba(255, 255, 255, 0.5);
+	z-index: 10;
+	background-color: rgba(255, 255, 255, 0.7);
 }
 
 .owl-item.active.center .suggestion__img:before {
@@ -645,7 +653,8 @@ h5 > span {
 	padding-top: 1px;
 }
 
-.suggestion__carousel.owl-carousel .owl-stage-outer {
+.suggestion__carousel-sm.owl-carousel .owl-stage-outer,
+.suggestion__carousel-md.owl-carousel .owl-stage-outer {
 	padding-top: 13px;
 }
 /* ---------- раздел categories------------- */
@@ -767,6 +776,7 @@ h5 > span {
 .who-use h2 {
 	margin-bottom: 21px;
 }
+
 .gallery__item {
 	width: 133px;
 	height: 133px;
@@ -989,6 +999,48 @@ footer > .container {
 		left: calc(100% + 20px);
 		background-position: -79px -77px;
 	}
+	.suggestion__carousel-md {
+		position: relative;
+	}
+	.owl-nav {
+		display: block;
+		height: 0;
+	}
+	.suggestion__carousel-md .arrow-left,
+	.suggestion__carousel-md .arrow-right {
+		position: absolute;
+		width: 12px;
+		height: 22px;
+	}
+
+	.suggestion__carousel-md .arrow-left {
+		background-position: -18px -139px;
+		top: 45%;
+		left: 11px;
+		transform: translateY(-50%);
+	}
+
+	.suggestion__carousel-md .arrow-right {
+		background-position: -2px -139px;
+		top: 45%;
+		right: 11px;
+		transform: translateY(-50%);
+	}
+
+	.owl-item.active > .suggestion__item > .suggestion__img:before {
+		background: none;
+	}
+	.suggestion__img {
+		margin: 0 auto;
+	}
+	.suggestion__item > p {
+		font-size: 14px;
+		text-decoration: none;
+		color: #000;
+	}
+	.suggestion__item > p + p {
+		display: none;
+	}
 	.categories {
 		padding-bottom: 37px;
 	}
@@ -1032,6 +1084,11 @@ footer > .container {
 
 	.gallery {
 		padding-bottom: 27px;
+	}
+	.gallery > .container,
+	.who-use > .container {
+		width: calc(100% - 30px);
+		margin: 0 auto;
 	}
 
 	.gallery__item:before,
@@ -1167,7 +1224,9 @@ footer > .container {
 
 /* ----------------Более 1250-----------------*/
 @media (min-width: 1250px) {
-	.container {
+	.container,
+	.gallery > .container,
+	.who-use > .container {
 		width: 1240px;
 		margin: 0 auto;
 	}
@@ -1238,11 +1297,50 @@ footer > .container {
 		padding-top: 41px;
 		padding-bottom: 62px;
 	}
+	.suggestion__carousel-lg {
+		position: relative;
+	}
+	.owl-nav {
+		display: block;
+		height: 0;
+	}
+	.arrow-left {
+		position: absolute;
+		width: 12px;
+		height: 19px;
+		background-position: -50px -139px;
+	}
+
+	.arrow-right {
+		position: absolute;
+		width: 12px;
+		height: 19px;
+		background-position: -34px -139px;
+	}
+	.suggestion__carousel-lg .arrow-left {
+		top: 45%;
+		right: calc(100% + 10px);
+		transform: translateY(-50%);
+	}
+
+	.suggestion__carousel-lg .arrow-right {
+		top: 45%;
+		left: calc(100% + 10px);
+		transform: translateY(-50%);
+	}
 
 	h2 {
 		font-size: 24px;
 		line-height: 28.68px;
 		margin-bottom: 28px;
+	}
+	h5 {
+		display: none;
+	}
+	.suggestion__img {
+		width: 185px;
+		height: 331px;
+		margin-bottom: 7px;
 	}
 	.categories {
 		padding-top: 77px;

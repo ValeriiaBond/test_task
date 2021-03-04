@@ -22,6 +22,32 @@ $(document).ready(function () {
         $('.basket__body').toggleClass('open-basket');
     });
 
+    function checkWidth() {
+        var windowWidth = $('body').innerWidth(),
+            elem = $("#suggestion__carousel");
+        if (windowWidth < 750) {
+            elem.removeClass('suggestion__carousel-lg');
+            elem.removeClass('suggestion__carousel-md');
+            elem.addClass('suggestion__carousel-sm');
+        } else if (windowWidth < 1250) {
+            elem.removeClass('suggestion__carousel-sm');
+            elem.removeClass('suggestion__carousel-lg');
+            elem.addClass('suggestion__carousel-md');
+        }
+        else {
+            elem.removeClass('suggestion__carousel-sm');
+            elem.removeClass('suggestion__carousel-md');
+            elem.addClass('suggestion__carousel-lg');
+        }
+
+
+    }
+
+    checkWidth(); // проверит при загрузке страницы
+
+    $(window).resize(function () {
+        checkWidth(); // проверит при изменении размера окна клиента
+    });
 
     $('.benefits__carousel').owlCarousel({
         loop: true,
@@ -49,7 +75,7 @@ $(document).ready(function () {
         }
     });
 
-    $('.suggestion__carousel').owlCarousel({
+    $('.suggestion__carousel-sm').owlCarousel({
         center: true,
         loop: true,
         margin: 10,
@@ -57,12 +83,31 @@ $(document).ready(function () {
         responsive: {
             0: {
                 items: 1
-            },
-            750: {
-                items: 5
             }
         }
     });
+    $('.suggestion__carousel-md').owlCarousel({
+        loop: true,
+        margin: 13,
+        items: 4,
+        nav: true,
+        navText: [
+            '<span class="arrow-owl arrow-left"></span>',
+            '<span class="arrow-owl arrow-right"></span>'
+        ],
+        stagePadding: 50,
+    });
+    $('.suggestion__carousel-lg').owlCarousel({
+        loop: true,
+        margin: 15,
+        nav: true,
+        navText: [
+            '<span class="arrow-owl arrow-left"></span>',
+            '<span class="arrow-owl arrow-right"></span>'
+        ],
+        items: 6,
+    });
+
     if ($(window).width() < 750) {
         $('.gallery__carousel').owlCarousel({
             center: true,
@@ -76,7 +121,7 @@ $(document).ready(function () {
         $('.gallery__carousel').owlCarousel({
             center: false,
             startPosition: 0,
-            items: 5
+            items: 5,
         });
     }
 
