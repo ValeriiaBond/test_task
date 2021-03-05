@@ -25,7 +25,7 @@ h2 {
 	line-height: 19.4px;
 	text-transform: uppercase;
 	position: relative;
-	width: fit-content;
+	width: max-content;
 	margin: 0 auto 30px;
 }
 
@@ -917,7 +917,6 @@ h5 > span {
 .newsletter__form input::-moz-placeholder {
 	color: #393939;
 	font-size: 19px;
-	line-height: 22.02px;
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.91px;
@@ -1428,7 +1427,7 @@ footer > .container {
 	}
 	.categories {
 		padding-top: 77px;
-		padding-bottom: 77px;
+		padding-bottom: 62px;
 	}
 	.categories::before {
 		width: 129px;
