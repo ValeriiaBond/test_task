@@ -16,9 +16,7 @@ h1 {
 	text-transform: uppercase;
 	letter-spacing: -1.5px;
 	float: left;
-	position: relative;
-	left: 50%;
-	transform: translateX(-50%);
+	padding-top: 16px;
 }
 
 h2 {
@@ -70,16 +68,18 @@ h2:after {
 	left: calc(100% + 10px);
 	background-position: -105px -122px;
 }
-.header__body {
+/* .header__body {
 	padding: 16px 0;
-}
+} */
 .basket {
 	width: 30px;
 	height: 25px;
 	margin-right: 10px;
 	background-position: -2px -110px;
 	position: relative;
+	z-index: 10;
 	float: right;
+	top: 14px;
 }
 
 .basket-amount {
@@ -100,10 +100,10 @@ h2:after {
 }
 .basket__body {
 	display: none;
-	width: 425px;
+	width: 100%;
 	position: absolute;
-	right: 100%;
-	top: -14px;
+	right: 0;
+	top: 0;
 	z-index: 5;
 	border-left: 2px solid #000;
 	border-bottom: 2px solid #000;
@@ -125,7 +125,7 @@ h2:after {
 	line-height: 38.4px;
 	text-transform: uppercase;
 	letter-spacing: 0.53px;
-	padding: 10px 0 9px 22px;
+	padding: 7px 0 6px 22px;
 }
 .basket__item {
 	display: flex;
@@ -142,7 +142,7 @@ h2:after {
 	height: inherit;
 }
 .product-details {
-	margin: 0 103px 0 14px;
+	margin-left: 7px;
 }
 .product__name {
 	color: #292929;
@@ -280,10 +280,13 @@ h2:after {
 	height: 195px;
 }
 .slider__item {
-	position: relative;
 	height: 195px;
 	background: url(../images/backgrounds/bg_header_slider.jpg);
 	background-size: cover;
+}
+.slider__item > .container {
+	height: inherit;
+	position: relative;
 }
 
 .slider__description {
@@ -357,10 +360,11 @@ button.owl-dot.active:focus {
 .header__body {
 	background: #000;
 }
-.header__body > .container::after {
+.clearfix::after {
 	content: "";
 	width: 100%;
 	display: block;
+	clear: both;
 }
 .menu {
 	position: relative;
@@ -372,8 +376,16 @@ button.owl-dot.active:focus {
 	color: #fff;
 	font-size: 20px;
 	text-transform: uppercase;
-	//width: 415px;
 	float: left;
+	height: 51px;
+	box-sizing: border-box;
+	padding: 16px 0;
+}
+
+.menu__header.open-menu {
+	width: 100%;
+	position: relative;
+	z-index: 5;
 }
 
 .menu__form {
@@ -430,11 +442,11 @@ button.owl-dot.active:focus {
 
 .menu__list {
 	height: 612px;
-	width: 415px;
+	width: 100%;
 	overflow-y: auto;
 	display: none;
 	position: absolute;
-	//top: 43px;
+	top: 50px;
 	z-index: 10;
 	background-color: #fff;
 }
@@ -451,6 +463,27 @@ button.owl-dot.active:focus {
 	padding: 29px 0 25px;
 	border-bottom: 2px solid #b1b1b1;
 	background-color: #fff;
+	position: relative;
+}
+.menu__item > a::after {
+	content: "+";
+	color: #292929;
+	font-size: 33px;
+	font-weight: 500;
+	position: absolute;
+	right: 25px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.menu__item > a:hover::after {
+	content: "-";
+	right: 27px;
+}
+.menu__list-2nd {
+	display: none;
+}
+.menu__item:hover .menu__list-2nd {
+	display: block;
 }
 
 .menu__list-2nd > li > a {
@@ -537,12 +570,12 @@ button.owl-dot.active:focus {
 }
 .menu__btn.open-menu:before {
 	transform: rotate(42deg);
-	top: 16px;
+	top: 10px;
 	transition: 0.4s;
 }
 .menu__btn.open-menu:after {
 	transform: rotate(-42deg);
-	bottom: 0px;
+	bottom: 6px;
 	transition: 0.4s;
 }
 .menu__btn {
@@ -552,6 +585,9 @@ button.owl-dot.active:focus {
 	display: block;
 	margin-right: 10px;
 	margin-left: 13px;
+}
+.login {
+	display: none;
 }
 
 /* ------------раздел suggestions------------ */
@@ -935,8 +971,16 @@ footer > .container {
 		display: flex;
 		flex-direction: column;
 	}
-	.header__body {
+	/* .header__body {
 		padding: 10px 0;
+	} */
+	.header__body .container {
+		position: relative;
+	}
+	h1 {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 
 	/* .menu {
@@ -944,6 +988,43 @@ footer > .container {
 	border: 2px solid #000;
 	border-left: none;
 } */
+
+	.login {
+		display: block;
+		float: right;
+		color: #fff;
+		font-size: 22px;
+		font-weight: 500;
+		line-height: 32px;
+		text-transform: uppercase;
+		letter-spacing: 0.7px;
+		margin-top: 10px;
+		margin-right: 36px;
+	}
+	.menu__header.open-menu {
+		width: 415px;
+		position: relative;
+		z-index: 5;
+	}
+	.menu__list {
+		height: 612px;
+		width: 415px;
+		overflow-y: auto;
+		display: none;
+		position: absolute;
+		top: 51px;
+		z-index: 10;
+		background-color: #fff;
+		border-right: 2px solid #000;
+		border-bottom: 2px solid #000;
+	}
+
+	.basket__body {
+		width: 425px;
+	}
+	.product-details {
+		margin: 0 103px 0 14px;
+	}
 
 	.header__body {
 		order: 10;
@@ -1230,14 +1311,14 @@ footer > .container {
 		width: 1240px;
 		margin: 0 auto;
 	}
-	.header__body {
-		padding: 14px 0;
-	}
 
 	.header-benefits {
 		order: 1;
 		font-size: 12px;
 		line-height: 15.49px;
+	}
+	.login {
+		font-size: 26px;
 	}
 
 	.benefits__carousel {
@@ -1291,6 +1372,9 @@ footer > .container {
 		border: 2px solid #000;
 		padding-top: 5px;
 		font-size: 16px;
+	}
+	.basket__header {
+		padding: 7px 0 6px 22px;
 	}
 
 	.suggestions {

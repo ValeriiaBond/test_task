@@ -6,6 +6,7 @@ $(document).ready(function () {
         $('.menu__list').toggleClass('open-menu');
         $('.menu__title').toggleClass('open-menu');
         $('.menu__btn').toggleClass('open-menu');
+        $('.menu__header').toggleClass('open-menu');
         //$('body').toggleClass('fixed-page');
     });
     // var top = $('.menu').offset().top;
